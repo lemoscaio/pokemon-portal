@@ -1,10 +1,12 @@
-function App() {
+import { PokeApiProvider } from "./contexts/pokeApiContext"
+import AppRoutes from "./routes"
 
-  return (
-    <div className="App">
-     
-    </div>
-  )
+function App() {
+	return (
+		<PokeApiProvider>
+			<AppRoutes />
+		</PokeApiProvider>
+	)
 }
 
 export default App
