@@ -1,11 +1,17 @@
-import { PokeApiProvider } from "./contexts/pokeApiContext"
+import { PokeApiProvider } from "./contexts/PokeApiContext"
+import { ResetCss } from "./styles/resetCSS"
 import AppRoutes from "./routes"
+import { GlobalStyles } from "./styles/globalStyles"
 
 function App() {
 	return (
-		<PokeApiProvider>
-			<AppRoutes />
-		</PokeApiProvider>
+		<>
+			<GlobalStyles />
+			<ResetCss />
+			<PokeApiProvider>
+				<AppRoutes />
+			</PokeApiProvider>
+		</>
 	)
 }
 
