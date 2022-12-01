@@ -2,7 +2,7 @@ import { NamedAPIResource, NamedAPIResourceList } from "pokenode-ts"
 import { useEffect, useRef, useState } from "react"
 import { usePokeApi } from "../../contexts/PokeApiContext"
 import SmallCard from "../SmallCard"
-import { List } from "./styles"
+import { StyledList, StyledListWrapper } from "./styles"
 
 interface PokemonListProps {
 	chosenPokemon: string
@@ -72,11 +72,9 @@ export default function PokemonList({
 		// setPage((prev) => prev + 1)
 	}
 
-	console.log(pokemons)
-
 	return (
-		<>
-			<List chosenPokemon={chosenPokemon}>
+		<StyledListWrapper chosenPokemon={chosenPokemon}>
+			<StyledList chosenPokemon={chosenPokemon}>
 				{pokemons?.map((pokemon, index) => {
 					if (index !== pokemons.length - 1) {
 						return (
@@ -101,7 +99,7 @@ export default function PokemonList({
 				<div ref={loadMoreRef}>
 					Last element? Are there more? {next ? <>Yes</> : <>No</>}
 				</div>
-			</List>
-		</>
+			</StyledList>
+		</StyledListWrapper>
 	)
 }

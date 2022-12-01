@@ -1,22 +1,39 @@
 import styled from "styled-components"
 
-interface ListProps {
+interface StyledListWrapperProps {
+	chosenPokemon: string
+}
+interface StyledListProps {
 	chosenPokemon: string
 }
 
-export const List = styled.div<ListProps>`
+export const StyledListWrapper = styled.aside<StyledListWrapperProps>`
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	z-index: 1;
+
+	width: 100%;
+	height: 100%;
+
+	overflow: hidden;
+`
+
+export const StyledList = styled.div<StyledListProps>`
+	width: 100%;
+	height: 100%;
+
+	overflow: auto;
+
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(1, 1fr);
 	grid-gap: 2px;
 
-	background-color: hsl(240, 100%, 0%);
+	background-color: ${(props) => props.theme.colors.background};
 
-	transition: width 1300ms;
+	transition: all 300ms;
 
-	width: ${({ chosenPokemon }) => (chosenPokemon ? "0px" : "100%")};
-	height: ${({ chosenPokemon }) => (chosenPokemon ? "0px" : "100%")};
-	overflow: ${({ chosenPokemon }) => (chosenPokemon ? "hidden" : "initial")};
-
-	/* transform: translateX(${(props) =>
-		props.chosenPokemon ? "-100%" : "0%"}); */
+	transform: translateX(
+		${({ chosenPokemon }) => (chosenPokemon ? "-20vw" : 0)}
+	);
 `

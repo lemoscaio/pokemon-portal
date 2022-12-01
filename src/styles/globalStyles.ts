@@ -4,4 +4,8 @@ export const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Courier New', Courier, monospace;
   }
+
+  button{
+    cursor: pointer;
+  }
 `

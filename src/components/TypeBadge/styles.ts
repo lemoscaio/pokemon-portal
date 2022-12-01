@@ -1,12 +1,13 @@
 import styled from "styled-components"
-import { typeHelpers } from "../../utils/typeHelpers"
+import { ThemeType } from "../../styles/theme"
 
 interface PokemonCardProps {
 	type: string
 }
 
 export const StyledPokemonType = styled.p<PokemonCardProps>`
-	background-color: ${(props) => typeHelpers.getBackgroundColor(props.type)};
+	background-color: ${({ theme, type }) =>
+		theme.types[type as keyof ThemeType["types"]]};
 
 	padding: 6px 8px;
 
@@ -16,7 +17,8 @@ export const StyledPokemonType = styled.p<PokemonCardProps>`
 	width: 100%;
 
 	p {
-		color: ${(props) => typeHelpers.getFontColor(props.type)};
+		color: ${({ theme, type }) =>
+			theme.typesFont[type as keyof ThemeType["types"]] || "white"};
 		font-size: 12px;
 		font-weight: 700;
 	}

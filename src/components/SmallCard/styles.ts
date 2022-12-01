@@ -5,7 +5,7 @@ export const StyledSmallCard = styled.div`
 	align-items: center;
 	gap: 12px;
 
-	background-color: hsl(0, 0%, 11%);
+	background-color: ${(props) => props.theme.colors.main500};
 	padding: 8px 8px;
 
 	cursor: pointer;
@@ -13,11 +13,12 @@ export const StyledSmallCard = styled.div`
 	transition: all 50ms ease-in-out;
 
 	&:hover {
-		background-color: hsl(203, 17%, 15%);
+		background-color: ${(props) => props.theme.colors.mainHover};
 	}
 
 	.icon {
-		height: 70px;
+		aspect-ratio: 1;
+		height: 100%;
 	}
 
 	.second-column {
@@ -37,6 +38,6 @@ export const StyledSmallCard = styled.div`
 	}
 
 	.pokemon-name {
-		color: white;
+		color: ${(props) => props.theme.colors.font};
 	}
 `
