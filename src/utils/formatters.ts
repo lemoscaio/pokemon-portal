@@ -7,4 +7,16 @@ export const formatters = {
 
 		return replacedPokemon
 	},
+
+	statName(statName: string | undefined) {
+		if (!statName) return
+
+		const splittedStat = statName.split("-")
+
+		return splittedStat
+			.map((string) => {
+				return string[0].toUpperCase() + string.substring(1)
+			})
+			.join("-")
+	},
 }

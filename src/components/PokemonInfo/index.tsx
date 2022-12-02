@@ -2,6 +2,8 @@ import { Pokemon, PokemonSpecies } from "pokenode-ts"
 import { useEffect, useState } from "react"
 import { usePokeApi } from "../../contexts/PokeApiContext"
 import { formatters } from "../../utils/formatters"
+import StatsBox from "../Stats"
+import StatBar from "../Stats/StatBar"
 import { TypeBadge } from "../TypeBadge"
 import {
 	StyledInfoBox,
@@ -73,6 +75,16 @@ export default function PokemonInfo({
 						{formatters.pokemonDescription(
 							pokemonSpeciesInfo?.flavor_text_entries[0]?.flavor_text
 						)}
+					</div>
+				</StyledInfoBox>
+				<StyledInfoBox>
+					<div className="box-header">Stats</div>
+					<div className="box-content">
+						<StatsBox>
+							{pokemon?.stats.map((stat) => (
+								<StatBar key={stat.stat.name} stat={stat} max={200} />
+							))}
+						</StatsBox>
 					</div>
 				</StyledInfoBox>
 			</StyledPokemonInfo>

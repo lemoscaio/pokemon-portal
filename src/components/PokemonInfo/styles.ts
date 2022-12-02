@@ -8,7 +8,26 @@ interface PokemonInfoProps {
 	chosenPokemon: string
 }
 
+export const StyledPokemonInfoWrapper = styled.div<PokemonInfoWrapperProps>`
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+
+	overflow-y: auto;
+
+	z-index: 2;
+
+	transition: all 300ms;
+	transform: translateX(100vw);
+	transform: translateX(${({ chosenPokemon }) => chosenPokemon && "0vw"});
+`
+
 export const StyledNav = styled.nav`
+	position: sticky;
+	top: 0;
+
 	width: 100%;
 
 	display: flex;
@@ -33,27 +52,15 @@ export const StyledNav = styled.nav`
 	}
 `
 
-export const StyledPokemonInfoWrapper = styled.div<PokemonInfoWrapperProps>`
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	width: 100%;
-	height: 100%;
-
-	z-index: 2;
-
-	transition: all 300ms;
-	transform: translateX(100vw);
-	transform: translateX(${({ chosenPokemon }) => chosenPokemon && "0vw"});
-`
-
 export const StyledPokemonInfo = styled.main<PokemonInfoProps>`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 16px;
 
-	height: 100%;
+	min-height: 100%;
+
+	padding-bottom: 32px;
 
 	background-color: ${(props) => props.theme.colors.main500};
 
@@ -106,5 +113,9 @@ export const StyledInfoBox = styled.article`
 
 	.box-content {
 		padding: 16px;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 `
