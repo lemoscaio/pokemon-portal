@@ -27,8 +27,8 @@ export default function PokemonInfo({
 
 	useEffect(() => {
 		if (chosenPokemon) {
-			getPokemonInfo().then((apiResponse) => setPokemon(apiResponse))
-			getPokemonSpeciesInfo().then((apiResponse) =>
+			getPokemonInfo().then((apiResponse: Pokemon) => setPokemon(apiResponse))
+			getPokemonSpeciesInfo().then((apiResponse: PokemonSpecies) =>
 				setPokemonSpeciesInfo(apiResponse)
 			)
 		} else {
