@@ -33,7 +33,7 @@ export default function PokemonList({
 			const target = entries[0]
 
 			if (target.isIntersecting) {
-				// setPage((prev) => prev + 1)
+				setPage((prev) => prev + 1)
 			}
 		}, options)
 
@@ -49,6 +49,8 @@ export default function PokemonList({
 
 	useEffect(() => {
 		const controller = new AbortController()
+
+		if (!next) return
 
 		listPokemon()
 			.then(updatePokemonAndNext)
@@ -69,7 +71,6 @@ export default function PokemonList({
 			prev?.concat(apiResult?.results as NamedAPIResource[])
 		)
 		setNext(apiResult?.next ? true : false)
-		// setPage((prev) => prev + 1)
 	}
 
 	return (
@@ -96,9 +97,7 @@ export default function PokemonList({
 						)
 					}
 				})}
-				<div ref={loadMoreRef}>
-					Last element? Are there more? {next ? <>Yes</> : <>No</>}
-				</div>
+				<div ref={loadMoreRef}></div>
 			</StyledList>
 		</StyledListWrapper>
 	)
