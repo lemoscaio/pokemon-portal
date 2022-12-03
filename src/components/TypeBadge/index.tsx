@@ -9,7 +9,7 @@ export function TypeBadge({ type }: TypeBadgeProps) {
 	return (
 		<>
 			<StyledPokemonType className="pokemon-type" type={type.name}>
-				<p>{type.name}</p>
+				<span>{type.name}</span>
 			</StyledPokemonType>
 		</>
 	)
