@@ -6,7 +6,7 @@ export default function AppRoutes() {
 		<>
 			<BrowserRouter>
 				<Routes>
-					<Route path="/pokemons" element={<Pokemons />} />
+					<Route index element={<Pokemons />} />
 				</Routes>
 			</BrowserRouter>
 		</>

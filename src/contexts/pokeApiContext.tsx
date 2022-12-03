@@ -9,7 +9,7 @@ interface PokeApiContextInterface {
 	api: MainClient
 }
 
-export const PokeApiContext = createContext<PokeApiContextInterface>({
+const PokeApiContext = createContext<PokeApiContextInterface>({
 	api: new MainClient(),
 })
 
